@@ -1,85 +1,10 @@
-Skip to content
-Navigation Menu
-savva0058-commits
-stroypoisk
-
-Type / to search
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Files
-Go to file
-t
-OIP.jpg
-index.html
-stroypoisk
-/
-index.html
-in
-main
-
-Edit
-
-Preview
-Indent mode
-
-Spaces
-Indent size
-
-2
-Line wrap mode
-
-No wrap
-Editing index.html file contents
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
 <!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>СтройПоиск — поиск разнорабочих и строителей</title>
-  <meta name="description" content="Поиск разнорабочих и строительных специалистов. Каталог, регистрация работника, зарплаты по выполненным работам, контакты и карта." />
+  <title>СтройПоиск — подбор персонала</title>
+  <meta name="description" content="Подбор строительного персонала: разнорабочие и мастера. Каталог, регистрация работников, зарплаты, контакты менеджеров и карта." />
   <style>
     :root{
       --bg:#ffffff;
@@ -95,7 +20,6 @@ Editing index.html file contents
       --shadow2: 0 6px 16px rgba(2,6,23,.06);
       --radius: 18px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -109,4 +33,1197 @@ Editing index.html file contents
     }
     a{color:inherit}
     .container{max-width:1180px;margin:0 auto;padding:0 18px}
-Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
+
+    header{
+      position:sticky; top:0; z-index:50;
+      border-bottom:1px solid rgba(229,231,235,.75);
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(10px);
+    }
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:12px 0; gap:10px; flex-wrap:wrap;
+    }
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .logo{
+      width:40px;height:40px;border-radius:14px;
+      background: linear-gradient(135deg, rgba(37,99,235,1), rgba(22,163,74,1));
+      box-shadow: 0 16px 34px rgba(37,99,235,.18);
+      position:relative; overflow:hidden;
+    }
+    .brand h1{font-size:14px;line-height:1;margin:0}
+    .brand span{display:block;font-size:12px;color:var(--muted);font-weight:600;margin-top:2px}
+
+    nav{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+    nav button{
+      border:0;background:transparent;cursor:pointer;
+      font-size:13px;color:var(--muted);
+      padding:8px 10px;border-radius:12px;
+      font-weight:650;
+    }
+    nav button:hover{background:var(--soft); color:var(--text)}
+    nav button.active{background: rgba(37,99,235,.10); color:var(--text)}
+
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 12px;border:1px solid var(--border);border-radius:999px;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 1px 0 rgba(2,6,23,.03);
+      color:var(--muted);
+      font-size:13px;
+      backdrop-filter: blur(8px);
+    }
+    .dot{width:8px;height:8px;border-radius:99px;background:var(--accent)}
+
+    .btn{
+      appearance:none;border:1px solid var(--border);background:var(--card);
+      color:var(--text); padding:11px 14px;border-radius:14px;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      cursor:pointer; font-weight:650;
+      box-shadow: 0 1px 0 rgba(2,6,23,.03);
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease, background .12s ease;
+      user-select:none;
+      text-decoration:none;
+    }
+    .btn:hover{transform: translateY(-1px); box-shadow: var(--shadow2); border-color:#d1d5db;}
+    .btn:active{transform: translateY(0px); box-shadow: 0 2px 8px rgba(2,6,23,.08);}
+    .btn.primary{background:var(--accent); border-color:var(--accent); color:white;}
+    .btn.good{background:var(--accent2); border-color:var(--accent2); color:white;}
+    .btn.danger{background:#fff; border-color:#fecaca; color:var(--danger);}
+    .btn.small{padding:9px 11px;border-radius:12px;font-size:13px;}
+    .btn.icon{width:44px;height:44px;padding:0;border-radius:14px;}
+    .btn[disabled]{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+
+    .input, select, textarea{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:12px 12px;
+      background:#fff;
+      font:inherit;
+      outline:none;
+      transition: border-color .12s ease, box-shadow .12s ease;
+    }
+    .input:focus, select:focus, textarea:focus{
+      border-color: rgba(37,99,235,.55);
+      box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+    }
+    textarea{min-height: 96px; resize: vertical}
+
+    section{padding:18px 0 22px}
+    .panel{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.92);
+      box-shadow: var(--shadow2);
+      padding:14px;
+    }
+
+    .hero{padding:26px 0 10px}
+    .hero-grid{
+      display:grid; gap:18px;
+      grid-template-columns: 1.15fr .85fr;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){ .hero-grid{grid-template-columns: 1fr;} }
+    .hero-card{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.84);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-card .inner{padding:18px}
+    .hero-title{font-size:34px;line-height:1.05;margin:6px 0 10px}
+    .hero-sub{color:var(--muted);font-weight:550;margin:0 0 14px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
+    .mini{
+      border:1px solid var(--border); border-radius: var(--radius);
+      background: rgba(255,255,255,.84);
+      box-shadow: var(--shadow2);
+      padding:14px;
+    }
+    .mini h3{margin:0 0 8px;font-size:14px}
+    .mini p{margin:0;color:var(--muted);font-size:13px}
+    .mini .row{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:10px;flex-wrap:wrap}
+    .mini .badge{
+      display:inline-flex;gap:8px;align-items:center;
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--border); border-radius:999px;
+      padding:6px 10px;background:var(--soft);
+    }
+
+    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:6px 0 12px;flex-wrap:wrap}
+    .section-head h2{margin:0;font-size:18px}
+    .section-head p{margin:0;color:var(--muted);font-size:13px}
+
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chip{
+      border:1px solid var(--border);
+      background: #fff;
+      padding:9px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:650;
+      font-size:13px;
+      color:var(--muted);
+      user-select:none;
+      transition: background .12s ease, border-color .12s ease, transform .12s ease;
+    }
+    .chip:hover{transform: translateY(-1px); background:var(--soft); border-color:#d1d5db; color:var(--text)}
+    .chip.active{background: rgba(37,99,235,.10); border-color: rgba(37,99,235,.25); color: var(--text)}
+
+    .searchbar{
+      display:grid;grid-template-columns: 1.2fr .8fr .8fr auto;
+      gap:10px; margin-top:12px;
+    }
+    @media (max-width: 920px){
+      .searchbar{grid-template-columns: 1fr 1fr; }
+      .searchbar .wide{grid-column: 1 / -1;}
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 980px){.grid{grid-template-columns: repeat(2,1fr)}}
+    @media (max-width: 620px){.grid{grid-template-columns: 1fr}}
+
+    .card{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.92);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height: 280px;
+    }
+    .card .img{
+      height:150px;
+      background: #f1f5f9;
+      background-size:cover;
+      background-position:center;
+    }
+    .card .body{padding:14px;display:flex;flex-direction:column;gap:10px;flex:1}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .name{font-weight:800;font-size:15px;margin:0}
+    .meta{color:var(--muted);font-size:13px;margin:0}
+    .tagline{font-size:13px;color:var(--muted);margin:0}
+    .kpis{display:flex;gap:8px;flex-wrap:wrap}
+    .kpi{
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:6px 10px;
+      background: var(--soft);
+      display:inline-flex;gap:6px;align-items:center;
+    }
+    .stars{letter-spacing:1px;color:#f59e0b;font-size:13px}
+    .card .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+
+    .table-wrap{overflow:auto;border:1px solid var(--border);border-radius: var(--radius);background:#fff}
+    table{width:100%;border-collapse:collapse;min-width:720px}
+    th,td{padding:12px;border-bottom:1px solid var(--border);text-align:left;font-size:13px}
+    th{background:var(--soft);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+    tr:hover td{background: rgba(2,6,23,.02)}
+    .money{font-weight:800}
+
+    footer{
+      border-top:1px solid rgba(229,231,235,.9);
+      padding:18px 0 26px;
+      background: rgba(255,255,255,.7);
+      backdrop-filter: blur(10px);
+    }
+    .footer-grid{
+      display:grid; gap:12px;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (max-width: 980px){.footer-grid{grid-template-columns:1fr}}
+    .muted{color:var(--muted)}
+    .contact-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+
+    /* Modal */
+    .modal-backdrop{
+      position:fixed; inset:0;
+      background: rgba(2,6,23,.55);
+      display:none;
+      align-items:center; justify-content:center;
+      padding:16px;
+      z-index:100;
+    }
+    .modal{
+      width:min(920px, 100%);
+      border-radius: 22px;
+      background: #fff;
+      border:1px solid rgba(229,231,235,.9);
+      box-shadow: 0 30px 80px rgba(2,6,23,.25);
+      overflow:hidden;
+      transform: translateY(8px);
+      opacity:0;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+    .modal.show{transform: translateY(0); opacity:1;}
+    .modal .top{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px; border-bottom:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(248,250,252,.95), rgba(255,255,255,.92));
+    }
+    .modal .content{display:grid;grid-template-columns: .95fr 1.05fr; gap:0}
+    @media (max-width: 880px){.modal .content{grid-template-columns:1fr}}
+    .modal .photo{min-height:240px;background:#f1f5f9;background-size:cover;background-position:center}
+    .modal .info{padding:14px;display:flex;flex-direction:column;gap:10px}
+    .modal .info h3{margin:0;font-size:18px}
+    .modal .info .sub{margin:0;color:var(--muted);font-size:13px}
+    .modal .info .bullets{margin:0;padding-left:18px;color:var(--muted);font-size:13px}
+    .modal .bottom{
+      display:flex;gap:10px;flex-wrap:wrap;
+      padding:14px;border-top:1px solid var(--border);
+      background:#fff;
+    }
+
+    /* Toast */
+    .toast{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 120;
+      max-width: 420px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .toast .t{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius: 16px;
+      padding:12px 12px;
+      box-shadow: var(--shadow);
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+    }
+    .toast .t strong{display:block}
+    .toast .t p{margin:2px 0 0;color:var(--muted);font-size:13px}
+    .toast .bar{
+      width:10px;border-radius:999px;background:var(--accent);
+      box-shadow: 0 12px 30px rgba(37,99,235,.22);
+    }
+
+    .hide{display:none !important;}
+    .hr{height:1px;background:var(--border);border:0;margin:10px 0}
+
+    .map-wrap{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background:#fff;
+      box-shadow: var(--shadow2);
+      height: 380px;
+    }
+    .map-wrap iframe{width:100%;height:100%;border:0}
+    .note{font-size:13px;color:var(--muted);margin:0}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <div class="topbar">
+      <a class="brand" href="#" id="brandGoHome">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>СтройПоиск</h1>
+          <span>Подбор персонала • стройка • рабочие</span>
+        </div>
+      </a>
+
+      <nav>
+        <button class="active" data-page="home">Главная</button>
+        <button data-page="catalog">Каталог</button>
+        <button data-page="register">Регистрация работника</button>
+        <button data-page="contacts">Контакты</button>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ===== HOME ===== -->
+  <div id="page-home">
+    <div class="hero">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="inner">
+            <div class="pill"><span class="dot"></span> В каталоге: <b id="countWorkers">0</b> работников</div>
+            <h2 class="hero-title">Подбор персонала на стройку</h2>
+            <p class="hero-sub">
+              Менеджеры по подбору персонала. Каталог работников, рейтинг, выполненные работы, расчёт выплат.
+              Связь через телефон, Telegram и WhatsApp.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn primary" data-page="catalog">Открыть каталог</button>
+              <button class="btn good" data-page="register">Зарегистрировать работника</button>
+              <button class="btn" data-page="contacts">Контакты + карта</button>
+            </div>
+
+            <div style="margin-top:12px" class="kpis">
+              <span class="kpi">✅ Профили</span>
+              <span class="kpi">⭐ Рейтинги</span>
+              <span class="kpi">🧾 Зарплаты</span>
+              <span class="kpi">📍 Карта</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="mini">
+            <h3>Менеджеры</h3>
+            <p class="note"><b>Казаков Максим Николаевич</b> — менеджер по подбору персонала</p>
+            <p class="note" style="margin-top:6px"><b>Кондрашонок Савва Александрович</b> — менеджер по подбору персонала</p>
+            <div class="row" style="margin-top:10px">
+              <span class="badge">📞 Быстрая связь</span>
+              <span class="badge">💬 Telegram/WhatsApp</span>
+              <span class="badge">✉️ Email</span>
+            </div>
+          </div>
+
+          <div class="mini">
+            <h3>Изображения</h3>
+            <p>Положи картинки в папку <b>images/</b> в репозитории — сайт их использует.</p>
+            <div class="row">
+              <button class="btn small" id="resetAll">Сбросить демо-данные</button>
+              <span class="pill"><span class="dot"></span> Демо</span>
+            </div>
+          </div>
+
+          <div class="mini">
+            <h3>Баннеры</h3>
+            <p>На главной и в карточках используются локальные картинки из <b>images/</b> (из архива).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CATALOG ===== -->
+  <div id="page-catalog" class="hide">
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Каталог работников</h2>
+          <p>Фильтры, сортировка, профиль работника + кнопки связи с менеджером.</p>
+        </div>
+        <div class="kpis">
+          <span class="kpi">👷‍♂️ Выбрано: <b id="pickedCount">0</b></span>
+          <span class="kpi">⭐ Средний рейтинг: <b id="avgRating">0.0</b></span>
+          <span class="kpi">✅ Всего работ: <b id="sumJobs">0</b></span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="searchbar">
+          <input id="q" class="input wide" placeholder="Поиск: имя, профессия, опыт, описание…" />
+          <select id="profession"></select>
+          <select id="sort">
+            <option value="rating_desc">Сортировка: рейтинг (лучшие)</option>
+            <option value="jobs_desc">Сортировка: выполнено работ (больше)</option>
+            <option value="pay_asc">Сортировка: зарплата за работу (дешевле)</option>
+            <option value="pay_desc">Сортировка: зарплата за работу (дороже)</option>
+          </select>
+          <button id="resetFilters" class="btn">Сброс</button>
+        </div>
+        <div class="chips" id="chips"></div>
+      </div>
+
+      <div style="height:12px"></div>
+      <div class="grid" id="workersGrid"></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Зарплаты за проделанную работу</h2>
+          <p>По возрастанию выполненных работ (можно переключать сортировку).</p>
+        </div>
+        <div class="row">
+          <button class="btn small" id="toggleSalarySort">Сортировка: по работам ↑</button>
+          <button class="btn small danger" id="clearRegistered">Удалить зарегистрированных (демо)</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <p class="note">Итоговая выплата = (зарплата за 1 работу) × (выполнено работ).</p>
+        <div class="table-wrap" style="margin-top:10px">
+          <table>
+            <thead>
+              <tr>
+                <th>Работник</th>
+                <th>Профессия</th>
+                <th>Зарплата за 1 работу</th>
+                <th>Выполнено работ</th>
+                <th>Итоговая выплата</th>
+                <th>Рейтинг</th>
+              </tr>
+            </thead>
+            <tbody id="salaryBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== REGISTER ===== -->
+  <div id="page-register" class="hide">
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Регистрация работника</h2>
+          <p>Telegram/WhatsApp убраны — оставили телефон и почту (не у всех есть мессенджеры).</p>
+        </div>
+        <div class="pill"><span class="dot"></span> Сохраняется в браузере (демо)</div>
+      </div>
+
+      <div class="panel">
+        <form id="regForm">
+          <div class="grid" style="grid-template-columns:repeat(3,1fr)">
+            <div>
+              <label class="note" for="rName">Имя и фамилия</label>
+              <input id="rName" class="input" placeholder="Например: Иван П." required />
+            </div>
+            <div>
+              <label class="note" for="rCity">Город</label>
+              <input id="rCity" class="input" placeholder="Например: Москва" required />
+            </div>
+            <div>
+              <label class="note" for="rProf">Профессия</label>
+              <select id="rProf" required></select>
+            </div>
+          </div>
+
+          <div class="grid" style="grid-template-columns:repeat(3,1fr); margin-top:10px">
+            <div>
+              <label class="note" for="rExp">Опыт</label>
+              <select id="rExp" required>
+                <option>Без опыта</option>
+                <option>1 год</option>
+                <option>2 года</option>
+                <option>3 года</option>
+                <option>4 года</option>
+                <option>5 лет</option>
+                <option>6+ лет</option>
+              </select>
+            </div>
+            <div>
+              <label class="note" for="rPay">Зарплата за 1 работу (₽)</label>
+              <input id="rPay" class="input" type="number" min="500" step="100" value="3000" required />
+            </div>
+            <div>
+              <label class="note" for="rJobs">Сколько работ выполнено</label>
+              <input id="rJobs" class="input" type="number" min="0" step="1" value="0" required />
+            </div>
+          </div>
+
+          <div class="grid" style="grid-template-columns:repeat(3,1fr); margin-top:10px">
+            <div>
+              <label class="note" for="rPhone">Телефон работника</label>
+              <input id="rPhone" class="input" placeholder="+7 999 000-00-00" required />
+            </div>
+            <div>
+              <label class="note" for="rEmail">Почта работника</label>
+              <input id="rEmail" class="input" type="email" placeholder="worker@mail.ru" />
+            </div>
+            <div>
+              <label class="note" for="rPhoto">Фото (из папки images)</label>
+              <select id="rPhoto" required></select>
+            </div>
+          </div>
+
+          <div style="margin-top:10px">
+            <label class="note" for="rAbout">Короткое описание</label>
+            <textarea id="rAbout" placeholder="Например: демонтаж, подсобные работы, уборка, перенос материалов…" required></textarea>
+          </div>
+
+          <div class="row" style="margin-top:12px">
+            <div class="kpis">
+              <span class="kpi">📞 Телефон обязателен</span>
+              <span class="kpi">✉️ Почта опционально</span>
+              <span class="kpi">🧾 Добавится в таблицу</span>
+            </div>
+            <div class="row">
+              <button class="btn" type="button" id="fillRegDemo">Заполнить пример</button>
+              <button class="btn primary" type="submit">Зарегистрировать</button>
+            </div>
+          </div>
+        </form>
+
+        <hr class="hr"/>
+        <p class="note">
+          Если хочешь добавить свои фото: положи их в <b>images/</b> и добавь название в список <code>photoOptions</code> внизу файла.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== CONTACTS ===== -->
+  <div id="page-contacts" class="hide">
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Контакты менеджеров и карта</h2>
+          <p>Связь через телефон, Telegram, WhatsApp + рабочая почта.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="grid" style="grid-template-columns:repeat(2,1fr)">
+          <div class="panel" style="padding:14px">
+            <p style="margin:0"><b>Казаков Максим Николаевич</b></p>
+            <p class="note" style="margin-top:6px">Менеджер по подбору персонала</p>
+            <p class="note" style="margin-top:6px"><b>Тел:</b> <span class="muted">+7 952 566-13-10</span></p>
+            <div class="contact-links">
+              <a class="btn small" href="tel:+79525661310">📞 Позвонить</a>
+              <a class="btn small" href="https://wa.me/79525661310" target="_blank" rel="noreferrer">💬 WhatsApp</a>
+              <a class="btn small" href="https://t.me/+79525661310" target="_blank" rel="noreferrer">📨 Telegram</a>
+            </div>
+          </div>
+
+          <div class="panel" style="padding:14px">
+            <p style="margin:0"><b>Кондрашонок Савва Александрович</b></p>
+            <p class="note" style="margin-top:6px">Менеджер по подбору персонала</p>
+            <p class="note" style="margin-top:6px"><b>Тел:</b> <span class="muted">+7 964 623-00-37</span></p>
+            <div class="contact-links">
+              <a class="btn small" href="tel:+79646230037">📞 Позвонить</a>
+              <a class="btn small" href="https://wa.me/79646230037" target="_blank" rel="noreferrer">💬 WhatsApp</a>
+              <a class="btn small" href="https://t.me/+79646230037" target="_blank" rel="noreferrer">📨 Telegram</a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="hr"/>
+
+        <p style="margin:0"><b>Рабочая почта:</b> <span class="muted">aleks_K_20@mail.ru</span></p>
+        <div class="contact-links">
+          <a class="btn" href="mailto:aleks_K_20@mail.ru">✉️ Написать на Email</a>
+        </div>
+
+        <hr class="hr"/>
+
+        <p class="note" style="margin:0 0 10px">
+          <b>Яндекс карта:</b> сейчас пример (центр Москвы). Можешь заменить iframe на свою точку.
+        </p>
+
+        <div class="map-wrap" aria-label="Яндекс карта">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?ll=37.617635%2C55.755814&z=12"
+            allowfullscreen="true"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Яндекс Карта">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p style="margin:0"><b>СтройПоиск</b></p>
+        <p class="muted" style="margin:8px 0 0;font-size:13px">Подбор персонала • строительные работы • рабочие.</p>
+      </div>
+      <div>
+        <p style="margin:0"><b>Разделы</b></p>
+        <p class="muted" style="margin:8px 0 0;font-size:13px">Главная • Каталог • Регистрация • Контакты</p>
+      </div>
+      <div>
+        <p style="margin:0"><b>Почта</b></p>
+        <p class="muted" style="margin:8px 0 0;font-size:13px">aleks_K_20@mail.ru</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Профиль работника">
+    <div class="top">
+      <div class="pill"><span class="dot"></span> Профиль работника</div>
+      <button class="btn icon" id="closeModal" aria-label="Закрыть">✕</button>
+    </div>
+    <div class="content">
+      <div class="photo" id="modalPhoto"></div>
+      <div class="info">
+        <h3 id="modalName">—</h3>
+        <p class="sub" id="modalSub">—</p>
+        <div class="kpis" id="modalKpis"></div>
+        <p class="tagline" id="modalAbout">—</p>
+        <ul class="bullets" id="modalBullets"></ul>
+
+        <div class="panel" style="padding:12px">
+          <p class="note" style="margin:0 0 8px"><b>Связь с менеджером</b></p>
+          <div class="row" style="justify-content:flex-start;gap:10px">
+            <select id="managerSelect" class="input" style="max-width:320px">
+              <option value="maxim">Казаков Максим Николаевич</option>
+              <option value="savva">Кондрашонок Савва Александрович</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="bottom">
+      <button class="btn primary" id="hireBtn">Нанять</button>
+      <a class="btn" id="callBtn" href="#">📞 Позвонить работнику</a>
+      <a class="btn" id="mgrWaBtn" href="#" target="_blank" rel="noreferrer">💬 WhatsApp менеджеру</a>
+      <a class="btn" id="mgrTgBtn" href="#" target="_blank" rel="noreferrer">📨 Telegram менеджеру</a>
+      <button class="btn danger" id="reportBtn">Пожаловаться</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // ========= ХРАНЕНИЕ =========
+  const STORAGE_KEY = "stroypoisk_registered_workers_v2";
+
+  // ====== ТВОИ КОНТАКТЫ МЕНЕДЖЕРОВ ======
+  const managers = {
+    maxim: {
+      name: "Казаков Максим Николаевич",
+      role: "Менеджер по подбору персонала",
+      phone: "+79525661310",
+      wa: "https://wa.me/79525661310",
+      tg: "https://t.me/+79525661310"
+    },
+    savva: {
+      name: "Кондрашонок Савва Александрович",
+      role: "Менеджер по подбору персонала",
+      phone: "+79646230037",
+      wa: "https://wa.me/79646230037",
+      tg: "https://t.me/+79646230037"
+    }
+  };
+
+  const workEmail = "aleks_K_20@mail.ru";
+
+  // ====== СПИСОК КАРТИНОК (локальные, из папки images/) ======
+  // Распакуй архив в репозиторий — там уже есть эти имена.
+  const photoOptions = [
+    "images/scene_hero.png",
+    "images/scene_site.png",
+    "images/scene_quality.png",
+    "images/scene_register.png",
+    "images/scene_contacts.png",
+    "images/portrait_raborab.png",
+    "images/portrait_tile.png",
+    "images/portrait_electric.png",
+    "images/portrait_plumber.png",
+    "images/portrait_painter.png",
+    "images/portrait_roofer.png",
+    "images/logo_sp.png"
+  ];
+
+  // ====== ДЕМО РАБОТНИКИ ======
+  const baseWorkers = [
+    {
+      id: "w1",
+      name: "Иван П.",
+      profession: "Разнорабочий",
+      city: "Ваш город",
+      rating: 4.7,
+      jobsDone: 8,
+      payPerJob: 3000,
+      exp: "2 года",
+      about: "Подсобные работы, демонтаж, уборка, перенос материалов.",
+      bullets: ["Ответственный", "Готов к выезду", "Работаю аккуратно"],
+      photo: "images/portrait_raborab.png",
+      phone: "+79990000000",
+      email: ""
+    },
+    {
+      id: "w2",
+      name: "Сергей М.",
+      profession: "Плиточник",
+      city: "Ваш город",
+      rating: 4.9,
+      jobsDone: 27,
+      payPerJob: 5200,
+      exp: "6 лет",
+      about: "Плитка, керамогранит, затирка, подготовка основания.",
+      bullets: ["Чистота после работ", "Фото-отчёт", "Ровные швы"],
+      photo: "images/portrait_tile.png",
+      phone: "+79990000001",
+      email: ""
+    },
+    {
+      id: "w3",
+      name: "Алексей З.",
+      profession: "Электрик",
+      city: "Ваш город",
+      rating: 4.8,
+      jobsDone: 18,
+      payPerJob: 7000,
+      exp: "5 лет",
+      about: "Розетки, свет, автоматы, диагностика, аккуратный монтаж.",
+      bullets: ["По смете", "Соблюдаю нормы", "Понятно объясняю"],
+      photo: "images/portrait_electric.png",
+      phone: "+79990000002",
+      email: ""
+    }
+  ];
+
+  const professionList = ["Разнорабочий","Плиточник","Маляр","Электрик","Сантехник","Кровельщик","Плотник","Монтажник","Штукатур","Сварщик"];
+
+  // ========= УТИЛИТЫ =========
+  const $ = (sel) => document.querySelector(sel);
+  const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+  const fmtMoney = (n) => new Intl.NumberFormat("ru-RU").format(n) + " ₽";
+  const clamp = (n,a,b) => Math.max(a, Math.min(b,n));
+  const escapeHtml = (s) => String(s)
+    .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;").replaceAll("'","&#039;");
+
+  function stars(r){
+    const full = Math.round(r);
+    return "★".repeat(clamp(full,1,5)) + "☆".repeat(5 - clamp(full,1,5));
+  }
+
+  function toast(title, msg){
+    const root = $("#toast");
+    const el = document.createElement("div");
+    el.className = "t";
+    el.innerHTML = `<div class="bar" aria-hidden="true"></div>
+      <div><strong>${escapeHtml(title)}</strong><p>${escapeHtml(msg)}</p></div>`;
+    root.appendChild(el);
+    setTimeout(()=>{ el.style.opacity="0"; el.style.transform="translateY(4px)"; }, 2600);
+    setTimeout(()=>{ el.remove(); }, 3100);
+  }
+
+  function loadRegistered(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return [];
+      const arr = JSON.parse(raw);
+      return Array.isArray(arr) ? arr : [];
+    } catch { return []; }
+  }
+  function saveRegistered(arr){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+  }
+  function clearRegistered(){
+    localStorage.removeItem(STORAGE_KEY);
+  }
+
+  // ========= СОСТОЯНИЕ =========
+  const state = {
+    page: "home",
+    q: "",
+    profession: "all",
+    sort: "rating_desc",
+    picked: new Set(),
+    salarySort: "jobs_asc"
+  };
+
+  function getAllWorkers(){
+    const registered = loadRegistered();
+    return [...baseWorkers, ...registered];
+  }
+
+  // ========= НАВИГАЦИЯ =========
+  function showPage(page){
+    state.page = page;
+    ["home","catalog","register","contacts"].forEach(p=>{
+      $("#page-" + p).classList.toggle("hide", p !== page);
+    });
+    $$("nav button[data-page]").forEach(b=>{
+      b.classList.toggle("active", b.dataset.page === page);
+    });
+    if(page === "catalog"){ renderCatalog(); }
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+
+  $$("nav button[data-page]").forEach(b=>{
+    b.addEventListener("click", ()=> showPage(b.dataset.page));
+  });
+  $$("[data-page]").forEach(el=>{
+    if(el.tagName.toLowerCase() !== "button") return;
+    if(el.closest("nav")) return;
+    el.addEventListener("click", ()=> showPage(el.dataset.page));
+  });
+  $("#brandGoHome").addEventListener("click", (e)=>{ e.preventDefault(); showPage("home"); });
+
+  // ========= ИНИТ =========
+  function initSelects(){
+    $("#profession").innerHTML =
+      `<option value="all">Все профессии</option>` + professionList.map(p=>`<option value="${escapeHtml(p)}">${escapeHtml(p)}</option>`).join("");
+
+    $("#rProf").innerHTML = professionList.map(p=>`<option value="${escapeHtml(p)}">${escapeHtml(p)}</option>`).join("");
+
+    $("#rPhoto").innerHTML = photoOptions.map(p=>`<option value="${escapeHtml(p)}">${escapeHtml(p.replace("images/",""))}</option>`).join("");
+  }
+
+  function initChips(){
+    const root = $("#chips");
+    const list = ["all", ...professionList];
+    root.innerHTML = list.map(p => `
+      <button class="chip ${p==="all"?"active":""}" data-chip="${escapeHtml(p)}">
+        ${p==="all" ? "Все" : "🛠️ " + escapeHtml(p)}
+      </button>`).join("");
+    root.addEventListener("click", (e)=>{
+      const b = e.target.closest(".chip");
+      if(!b) return;
+      $$(".chip").forEach(x=>x.classList.remove("active"));
+      b.classList.add("active");
+      state.profession = b.dataset.chip;
+      $("#profession").value = state.profession;
+      renderCatalog();
+    });
+  }
+
+  // ========= КАТАЛОГ =========
+  function workerMatches(w){
+    const q = state.q.trim().toLowerCase();
+    const prof = state.profession;
+    if(prof !== "all" && w.profession !== prof) return false;
+    if(!q) return true;
+    const hay = (w.name + " " + w.profession + " " + w.about + " " + w.exp + " " + w.city).toLowerCase();
+    return hay.includes(q);
+  }
+
+  function sortWorkers(list){
+    const s = state.sort;
+    const arr = [...list];
+    const by = {
+      rating_desc: (a,b)=> b.rating - a.rating || b.jobsDone - a.jobsDone,
+      jobs_desc: (a,b)=> b.jobsDone - a.jobsDone || b.rating - a.rating,
+      pay_asc: (a,b)=> a.payPerJob - b.payPerJob || b.rating - a.rating,
+      pay_desc: (a,b)=> b.payPerJob - a.payPerJob || b.rating - a.rating,
+    }[s];
+    return arr.sort(by);
+  }
+
+  function togglePick(id){
+    if(state.picked.has(id)){
+      state.picked.delete(id);
+      toast("Убрано", "Работник удалён из выбранных.");
+    } else {
+      state.picked.add(id);
+      const w = getAllWorkers().find(x=>x.id===id);
+      toast("Добавлено", w ? `Вы выбрали: ${w.name}` : "Вы выбрали работника.");
+    }
+    renderCatalog();
+  }
+
+  function renderStats(visible){
+    $("#countWorkers").textContent = String(getAllWorkers().length);
+    $("#pickedCount").textContent = String(state.picked.size);
+
+    const avg = visible.length ? (visible.reduce((s,w)=>s+w.rating,0)/visible.length) : 0;
+    const sumJobs = visible.reduce((s,w)=>s+w.jobsDone,0);
+    $("#avgRating").textContent = avg.toFixed(1);
+    $("#sumJobs").textContent = String(sumJobs);
+  }
+
+  function renderWorkers(){
+    const all = getAllWorkers();
+    const visible = sortWorkers(all.filter(workerMatches));
+    const root = $("#workersGrid");
+
+    root.innerHTML = visible.map(w=>{
+      const picked = state.picked.has(w.id);
+      const totalPay = w.jobsDone * w.payPerJob;
+      return `
+        <article class="card">
+          <div class="img" style="background-image:url('${escapeHtml(w.photo)}')" role="img" aria-label="Фото работника"></div>
+          <div class="body">
+            <div class="row">
+              <div>
+                <p class="name">${escapeHtml(w.name)}</p>
+                <p class="meta">${escapeHtml(w.profession)} • ${escapeHtml(w.city)} • опыт ${escapeHtml(w.exp)}</p>
+              </div>
+              <div class="pill" title="Рейтинг">${escapeHtml(stars(w.rating))} <b>${w.rating.toFixed(1)}</b></div>
+            </div>
+
+            <p class="tagline">${escapeHtml(w.about)}</p>
+
+            <div class="kpis">
+              <span class="kpi">✅ работ: <b>${w.jobsDone}</b></span>
+              <span class="kpi">💰 за работу: <b>${fmtMoney(w.payPerJob)}</b></span>
+              <span class="kpi">🧾 всего: <b>${fmtMoney(totalPay)}</b></span>
+            </div>
+
+            <div class="actions">
+              <button class="btn small primary" data-open="${escapeHtml(w.id)}">Профиль</button>
+              <button class="btn small ${picked ? "good":""}" data-pick="${escapeHtml(w.id)}">${picked ? "✓ Выбран" : "Нанять"}</button>
+              <button class="btn small" data-manager="${escapeHtml(w.id)}">Связь с менеджером</button>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join("");
+
+    renderStats(visible);
+
+    root.querySelectorAll("[data-open]").forEach(btn=>{
+      btn.addEventListener("click", ()=> openModal(btn.getAttribute("data-open")));
+    });
+    root.querySelectorAll("[data-pick]").forEach(btn=>{
+      btn.addEventListener("click", ()=> togglePick(btn.getAttribute("data-pick")));
+    });
+    root.querySelectorAll("[data-manager]").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const id = btn.getAttribute("data-manager");
+        openModal(id);
+        toast("Менеджер", "Выбери менеджера в профиле и напиши в WhatsApp/Telegram.");
+      });
+    });
+  }
+
+  function renderSalary(){
+    const body = $("#salaryBody");
+    const rows = getAllWorkers().map(w=>({ ...w, totalPay: w.jobsDone * w.payPerJob }));
+
+    if(state.salarySort === "jobs_asc"){
+      rows.sort((a,b)=> a.jobsDone - b.jobsDone || a.totalPay - b.totalPay);
+    } else if(state.salarySort === "jobs_desc"){
+      rows.sort((a,b)=> b.jobsDone - a.jobsDone || b.totalPay - a.totalPay);
+    } else {
+      rows.sort((a,b)=> b.totalPay - a.totalPay || b.jobsDone - a.jobsDone);
+    }
+
+    body.innerHTML = rows.map(w=>`
+      <tr>
+        <td><b>${escapeHtml(w.name)}</b></td>
+        <td>${escapeHtml(w.profession)}</td>
+        <td class="money">${fmtMoney(w.payPerJob)}</td>
+        <td><b>${w.jobsDone}</b></td>
+        <td class="money">${fmtMoney(w.totalPay)}</td>
+        <td>${escapeHtml(stars(w.rating))} <b>${w.rating.toFixed(1)}</b></td>
+      </tr>
+    `).join("");
+  }
+
+  function renderCatalog(){
+    renderWorkers();
+    renderSalary();
+  }
+
+  $("#q").addEventListener("input", (e)=>{ state.q = e.target.value; renderCatalog(); });
+  $("#profession").addEventListener("change", (e)=>{
+    state.profession = e.target.value;
+    $$(".chip").forEach(c=>c.classList.toggle("active", c.dataset.chip === state.profession));
+    renderCatalog();
+  });
+  $("#sort").addEventListener("change", (e)=>{ state.sort = e.target.value; renderCatalog(); });
+
+  $("#resetFilters").addEventListener("click", ()=>{
+    state.q = ""; state.profession="all"; state.sort="rating_desc";
+    $("#q").value=""; $("#profession").value="all"; $("#sort").value="rating_desc";
+    $$(".chip").forEach(c=>c.classList.toggle("active", c.dataset.chip === "all"));
+    toast("Сброс", "Фильтры сброшены.");
+    renderCatalog();
+  });
+
+  $("#toggleSalarySort").addEventListener("click", ()=>{
+    if(state.salarySort === "jobs_asc"){ state.salarySort = "jobs_desc"; $("#toggleSalarySort").textContent = "Сортировка: по работам ↓"; }
+    else if(state.salarySort === "jobs_desc"){ state.salarySort = "total_desc"; $("#toggleSalarySort").textContent = "Сортировка: по выплате (макс.)"; }
+    else { state.salarySort = "jobs_asc"; $("#toggleSalarySort").textContent = "Сортировка: по работам ↑"; }
+    renderSalary();
+  });
+
+  // ========= REGISTRATION =========
+  function nextId(){
+    return "r" + Math.random().toString(16).slice(2) + Date.now().toString(16);
+  }
+
+  $("#fillRegDemo").addEventListener("click", ()=>{
+    $("#rName").value = "Пётр С.";
+    $("#rCity").value = "Москва";
+    $("#rProf").value = "Сантехник";
+    $("#rExp").value = "3 года";
+    $("#rPay").value = 4000;
+    $("#rJobs").value = 2;
+    $("#rPhone").value = "+7 999 111-22-33";
+    $("#rEmail").value = "worker@mail.ru";
+    $("#rPhoto").value = "images/portrait_plumber.png";
+    $("#rAbout").value = "Монтаж/ремонт сантехники, устранение протечек, замена смесителей.";
+    toast("Готово", "Пример заполнен.");
+  });
+
+  $("#regForm").addEventListener("submit", (e)=>{
+    e.preventDefault();
+
+    const name = $("#rName").value.trim();
+    const city = $("#rCity").value.trim();
+    const profession = $("#rProf").value;
+    const exp = $("#rExp").value;
+    const payPerJob = Number($("#rPay").value);
+    const jobsDone = Number($("#rJobs").value);
+    const phone = $("#rPhone").value.trim();
+    const email = $("#rEmail").value.trim();
+    const about = $("#rAbout").value.trim();
+    const photo = $("#rPhoto").value;
+
+    if(!name || !city || !profession || !exp || !phone || !about || !Number.isFinite(payPerJob) || !Number.isFinite(jobsDone) || !photo){
+      toast("Ошибка", "Заполни все обязательные поля корректно.");
+      return;
+    }
+
+    const rating = 4.5; // демо
+    const newWorker = {
+      id: nextId(),
+      name, profession, city,
+      rating,
+      jobsDone: Math.max(0, Math.floor(jobsDone)),
+      payPerJob: Math.max(0, Math.floor(payPerJob)),
+      exp,
+      about,
+      bullets: ["Готов к работе", "Ответственный подход", "Связь по телефону"],
+      photo,
+      phone,
+      email
+    };
+
+    const reg = loadRegistered();
+    reg.unshift(newWorker);
+    saveRegistered(reg);
+
+    toast("Успешно!", "Работник добавлен в каталог.");
+    $("#regForm").reset();
+
+    showPage("catalog");
+    renderCatalog();
+  });
+
+  $("#clearRegistered").addEventListener("click", ()=>{
+    clearRegistered();
+    toast("Готово", "Зарегистрированные работники удалены.");
+    renderCatalog();
+  });
+
+  $("#resetAll").addEventListener("click", ()=>{
+    clearRegistered();
+    state.picked.clear();
+    toast("Сброс", "Демо-данные сброшены.");
+    $("#q").value=""; $("#profession").value="all"; $("#sort").value="rating_desc";
+    state.q=""; state.profession="all"; state.sort="rating_desc";
+    $$(".chip").forEach(c=>c.classList.toggle("active", c.dataset.chip === "all"));
+    $("#toggleSalarySort").textContent = "Сортировка: по работам ↑";
+    state.salarySort = "jobs_asc";
+    $("#countWorkers").textContent = String(getAllWorkers().length);
+    renderCatalog();
+    showPage("home");
+  });
+
+  // ========= MODAL =========
+  let currentModalId = null;
+
+  function buildManagerLinks(managerKey, workerName){
+    const m = managers[managerKey] || managers.maxim;
+    const text = encodeURIComponent(`Здравствуйте! Нужен подбор персонала. Интересует работник: ${workerName}`);
+    // WhatsApp поддерживает ?text= (часто работает в браузере/мобиле)
+    return {
+      wa: m.wa + `?text=${text}`,
+      tg: m.tg, // t.me/+number
+      phone: m.phone,
+      name: m.name
+    };
+  }
+
+  function openModal(id){
+    const w = getAllWorkers().find(x=>x.id===id);
+    if(!w) return;
+    currentModalId = id;
+
+    $("#modalPhoto").style.backgroundImage = `url('${w.photo}')`;
+    $("#modalName").textContent = w.name;
+    $("#modalSub").textContent = `${w.profession} • ${w.city} • опыт ${w.exp} • рейтинг ${w.rating.toFixed(1)}`;
+    $("#modalAbout").textContent = w.about;
+
+    $("#modalKpis").innerHTML = `
+      <span class="kpi">✅ работ: <b>${w.jobsDone}</b></span>
+      <span class="kpi">💰 за работу: <b>${fmtMoney(w.payPerJob)}</b></span>
+      <span class="kpi">🧾 всего: <b>${fmtMoney(w.jobsDone*w.payPerJob)}</b></span>
+    `;
+    $("#modalBullets").innerHTML = (w.bullets || []).map(x=>`<li>${escapeHtml(x)}</li>`).join("");
+
+    $("#callBtn").href = `tel:${w.phone}`;
+
+    // manager links
+    const key = $("#managerSelect").value || "maxim";
+    const links = buildManagerLinks(key, w.name);
+    $("#mgrWaBtn").href = links.wa;
+    $("#mgrTgBtn").href = links.tg;
+
+    $("#hireBtn").textContent = state.picked.has(w.id) ? "✓ Уже выбран" : "Нанять";
+    $("#hireBtn").classList.toggle("good", state.picked.has(w.id));
+    $("#hireBtn").classList.toggle("primary", !state.picked.has(w.id));
+
+    const back = $("#modalBackdrop");
+    const modal = $("#modal");
+    back.style.display = "flex";
+    requestAnimationFrame(()=> modal.classList.add("show"));
+    back.setAttribute("aria-hidden","false");
+  }
+
+  $("#managerSelect").addEventListener("change", ()=>{
+    if(!currentModalId) return;
+    const w = getAllWorkers().find(x=>x.id===currentModalId);
+    if(!w) return;
+    const key = $("#managerSelect").value || "maxim";
+    const links = buildManagerLinks(key, w.name);
+    $("#mgrWaBtn").href = links.wa;
+    $("#mgrTgBtn").href = links.tg;
+    toast("Менеджер выбран", managers[key].name);
+  });
+
+  function closeModal(){
+    const back = $("#modalBackdrop");
+    const modal = $("#modal");
+    modal.classList.remove("show");
+    setTimeout(()=>{
+      back.style.display = "none";
+      back.setAttribute("aria-hidden","true");
+      currentModalId = null;
+    }, 140);
+  }
+
+  $("#modalBackdrop").addEventListener("click", (e)=>{
+    if(e.target.id === "modalBackdrop") closeModal();
+  });
+  $("#closeModal").addEventListener("click", closeModal);
+  document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeModal(); });
+
+  $("#hireBtn").addEventListener("click", ()=>{
+    if(!currentModalId) return;
+    togglePick(currentModalId);
+    const w = getAllWorkers().find(x=>x.id===currentModalId);
+    if(w){
+      $("#hireBtn").textContent = state.picked.has(w.id) ? "✓ Уже выбран" : "Нанять";
+      $("#hireBtn").classList.toggle("good", state.picked.has(w.id));
+      $("#hireBtn").classList.toggle("primary", !state.picked.has(w.id));
+    }
+  });
+
+  $("#reportBtn").addEventListener("click", ()=>{
+    toast("Жалоба отправлена (демо)", "Мы проверим профиль. Спасибо за сигнал.");
+  });
+
+  // ========= START =========
+  initSelects();
+  initChips();
+  $("#countWorkers").textContent = String(getAllWorkers().length);
+  showPage("home");
+</script>
+</body>
+</html>
